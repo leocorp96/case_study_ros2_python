@@ -1,0 +1,10 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: case_description
+    relative_path: urdf/robot_w_screwdriver.urdf
+  srdf:
+    relative_path: config/irb6640_205.srdf
+  package_settings:
+    author_name: Ephson Guakro
+    author_email: leocorp96@gmail.com
+    generated_timestamp: 1740224540

@@ -1,0 +1,75 @@
+# This config file is used by ros2_control
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Hz
+
+    # irb_arm_group_controller:
+    #   type: joint_trajectory_controller/JointTrajectoryController
+
+
+    irb_eff_group_controller:
+      type: effort_controllers/JointGroupEffortController
+    # fake_irb_eff_group_controller:
+    #   type: joint_trajectory_controller/JointTrajectoryController
+
+
+    irb_arm_w_screw_group_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+# irb_arm_group_controller:
+#   ros__parameters:
+#     joints:
+#       - joint_1
+#       - joint_2
+#       - joint_3
+#       - joint_4
+#       - joint_5
+#       - joint_6
+#     command_interfaces:
+#       - position
+#     state_interfaces:
+#       - position
+#       - velocity
+#     allow_nonzero_velocity_at_trajectory_end: true
+
+irb_eff_group_controller:
+  ros__parameters:
+    joints:
+      - screwdriver-screwdriver_tcp
+    command_interfaces:
+      - effort
+    state_interfaces:
+      - position
+      - velocity
+    allow_nonzero_velocity_at_trajectory_end: true
+# fake_irb_eff_group_controller:
+#   ros__parameters:
+#     joints:
+#       - screwdriver-screwdriver_tcp_dummy
+#     command_interfaces:
+#       - position
+#     state_interfaces:
+#       - position
+#       - velocity
+#     allow_nonzero_velocity_at_trajectory_end: true
+
+irb_arm_w_screw_group_controller:
+  ros__parameters:
+    joints:
+      - joint_1
+      - joint_2
+      - joint_3
+      - joint_4
+      - joint_5
+      - joint_6
+      - screwdriver-screwdriver_tcp_dummy
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    allow_nonzero_velocity_at_trajectory_end: true

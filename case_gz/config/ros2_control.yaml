@@ -1,0 +1,46 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100  # Control loop frequency (Hz)
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    arm_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+    
+    screw_controller:
+      type: effort_controllers/JointGroupEffortController
+
+arm_controller:
+  ros__parameters:
+    joints:
+      - joint_1
+      - joint_2
+      - joint_3
+      - joint_4
+      - joint_5
+      - joint_6
+    command_interfaces:
+      - position
+    state_interfaces:
+      - position
+      - velocity
+    gains:
+      joint1: { p: 100.0, d: 10.0, i: 1.0 }
+      joint2: { p: 100.0, d: 10.0, i: 1.0 }
+      joint3: { p: 100.0, d: 10.0, i: 1.0 }
+      joint4: { p: 100.0, d: 10.0, i: 1.0 }
+      joint5: { p: 100.0, d: 10.0, i: 1.0 }
+      joint6: { p: 100.0, d: 10.0, i: 1.0 }
+
+screw_controller:
+  ros__parameters:
+    joints:
+      - screwdriver-screwdriver_tcp
+    command_interfaces:
+      - effort
+    state_interfaces:
+      - position
+      - velocity
+    gains:
+      screwdriver-screwdriver_tcp: { p: 100.0, d: 10.0, i: 1.0 }
